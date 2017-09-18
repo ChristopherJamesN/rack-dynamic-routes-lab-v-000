@@ -8,7 +8,12 @@ class Application
 
     if req.path.match(/items/)
       search_term = req.params["q"]
-      resp.write handle_search(search_term)
+      if @@items.include?(search_term)
+        return "#{search_term} is one of our items"
+      else
+        resp.write "Item not found"
+        resp.status = 400
+      end
     else
       resp.write "Route not found"
       resp.status = 404
@@ -17,11 +22,8 @@ class Application
   end
 
   def handle_search(search_term)
-    if @@items.include?(search_term)
-      return "#{search_term} is one of our items"
-    else
-      resp.write "Item not found"
-      resp.status = 400
+    
+      
     end
   end
 
