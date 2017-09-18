@@ -20,7 +20,7 @@ class Application
     if @@items.include?(search_term)
       return "#{search_term} is one of our items"
     else
-      return "Item not found"
+      resp.write "Item not found"
       resp.status = 400
     end
   end
