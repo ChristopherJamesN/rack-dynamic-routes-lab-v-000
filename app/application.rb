@@ -7,9 +7,9 @@ class Application
     req = Rack::Request.new(env)
 
     if req.path.match(/items/)
-      search_term = req.params["/"]
-      if @@items.include?(search_term)
-        return "#{search_term.price}"
+      item_title = req.path.split("/songs/").last
+      if @@items.include?(item_title)
+        return "#{item_title.price}"
       else
         resp.write "Item not found"
         resp.status = 400
