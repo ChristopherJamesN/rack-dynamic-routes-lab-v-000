@@ -1,6 +1,10 @@
 class Application
-
+  attr_accessor :items
   @@items = []
+
+  def items
+    @@items
+  end
 
   def call(env)
     resp = Rack::Response.new
@@ -20,10 +24,6 @@ class Application
       resp.status = 404
     end
     resp.finish
-  end
-
-  def items
-    @@items
   end
   
 end
