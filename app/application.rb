@@ -9,7 +9,7 @@ class Application
     if req.path.match(/items/)
       search_term = req.params["q"]
       if @@items.include?(search_term)
-        return "#{search_term} is one of our items"
+        return "#{search_term.price}"
       else
         resp.write "Item not found"
         resp.status = 400
