@@ -8,8 +8,9 @@ class Application
 
     if req.path.match(/items/)
       item_title = req.path.split("/items/").last
-      if @@items.find{|s| s.name == item_title} != nil
-        return "#{@@items.find{|s| s.name == item_title}.price}"
+      item = @@items.find{|s| s.name == item_title}
+      if  item != nil
+        return "#{item.price}"
       else
         resp.write "Item not found"
         resp.status = 400
