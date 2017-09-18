@@ -21,4 +21,8 @@ class Application
     end
     resp.finish
   end
+
+  def items
+    @@items
+  end
 end
