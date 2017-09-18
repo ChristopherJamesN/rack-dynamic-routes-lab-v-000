@@ -21,10 +21,4 @@ class Application
     resp.finish
   end
 
-  def handle_search(search_term)
-    
-      
-    end
-  end
-
 end
