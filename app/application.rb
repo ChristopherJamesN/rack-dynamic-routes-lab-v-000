@@ -25,4 +25,5 @@ class Application
   def items
     @@items
   end
+  
 end
